@@ -1,0 +1,3 @@
+GRANT ALL PRIVILEGES ON blog.* TO 'koromuke'@'%';
+
+FLUSH PRIVILEGES;

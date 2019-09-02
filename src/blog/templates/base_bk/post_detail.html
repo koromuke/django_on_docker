@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+   <div class="card mb-3">
+     <h2 class="card-header bg-dark text-white">{{ post.title }}</h2>
+      <div class="card-body">
+        <p>{{ post.created_at }}, {{ post.category }}</p>
+        {{ post.text | linebreaksbr | urlize}}
+      </div>
+    </div>
+
+    {% for comment in post.comment_set.all %}
+    <p>
+    {{ comment.name }}<br>
+    {{ comment.text | linebreaksbr}}
+    </p>
+    {% endfor %}
+
+<a class="btn btn-dark" href="{% url 'blog:comment' post.pk %}">コメント投稿ページへ</a>
+
+{% endblock %}
